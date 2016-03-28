@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- CUSTOMIZE THIS! -->
-<title>Computerphilologie</title>
+<title>Quantitative Text Analysis</title>
 <meta name="author" content="Christof Schöch">
 <!-- END -->
 <meta name="description" content="Slides">
@@ -35,25 +35,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown>
 <script type="text/template">
-# Computerphilologie: Überblick
+# Quantitative Text Analysis<br/>(1): an Overview
 <hr/>
 <br/>
-<p>Workshop Digitale Forschungsmethoden in der Romanistik</p>
-<p>Forum Junge Romanistik 2016, Universität Würzburg</p>
+<p>Erasmus+ Lectures</p>
+<p>Kraków, March/April 2016</p>
 <br/>
 <hr/>
-<p>Christof Schöch<br/>CLiGS - Universität Würzburg</p>
+<p>Christof Schöch<br/>CLiGS - University of Würzburg</p>
 <p><img height="50" data-src="img/basics/UWUE.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="100" data-src="img/basics/CLiGS.jpg"></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" data-src="img/basics/BMBF.jpg"></img></p>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Überblick
-1. Computerphilologie
-2. Texterzeugung
-3. Textanalyse
-4. Weiterführendes
+## Overview
+1. What is literary text analysis?
+2. Stylometric Similarity Analysis
+3. AMachine Learning in Computational Narratology
+4. Topic Modeling
+5. Conclusion
 </script>
 </section>
 
@@ -61,227 +62,335 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 	
 <section data-markdown>
 <script type="text/template">
-# 1. Was ist Computerphilologie?
+# 1. What is literary text analysis?
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Verortung der Computerphilologie
-<p><img height="500" data-src="img/verortung.jpg"></img></p>
+## Literary Computing
+<p><img height="500" data-src="img/literary-computing.png"></img></p>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Computerphilologie
-* Literaturwissenschaft: Erfassen, Erzeugen, Anreichern, Analyse, Interpretation, Speicherung und Dissemination von (literarischen) Texten
-* Computerphilologie: Literaturwissenschaft auf Grundlage digitaler Textdaten und mit Hilfe algorithmischer Werkzeuge und Methoden.
-<p><small>(Taxonomie: https://github.com/dhtaxonomy/TaDiRAH)</small></p>
+## Literary Computing
+* Creating Texts: Digitisation, Digital Scholarly Editing (TEI), Text Collections
+* Analysing Texts: Style, Content, Space, Time, Characters; Authors, Genres, Periods, etc.
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Zwei zentrale Bereiche der Computerphilologie
-* Erzeugen/Anreichern: Digitalisierung, (digitale) Editionen, Textsammlungen, Korpora
-* Analysieren: Stil, Inhalt, Räumlichkeit, Figurennetzwerke, Gattungen, etc.
+## Literary Text Analysis
+<p><img height="500" data-src="img/literary-text-analysis.png"></img></p>
 </script>
 </section>
+
+<section data-markdown>
+<script type="text/template">
+## Some distinctions
+* quantitative vs. qualitative approaches <!-- .element: class="fragment" data-fragment-index="1" -->
+* data-driven (clustering) vs. concept-driven (classification) <!-- .element: class="fragment" data-fragment-index="2" -->
+* annotation vs. machine learning <!-- .element: class="fragment" data-fragment-index="3" -->
+* information extraction vs. data visualisation <!-- .element: class="fragment" data-fragment-index="4" -->
+* surface features vs. higher-order features <!-- .element: class="fragment" data-fragment-index="5" -->
+* GUI vs. CLI <!-- .element: class="fragment" data-fragment-index="6" -->
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Some areas of LTA
+* Authorship Attribution (Stylometry) <!-- .element: class="fragment" data-fragment-index="1" -->
+* Genre Classification <!-- .element: class="fragment" data-fragment-index="2" -->
+* Corpus Stylistics <!-- .element: class="fragment" data-fragment-index="3" -->
+* Content Analysis <!-- .element: class="fragment" data-fragment-index="4" -->
+* Computational Narratology <!-- .element: class="fragment" data-fragment-index="5" -->
+* Literary Network Analysis <!-- .element: class="fragment" data-fragment-index="6" -->
+* Literary Mapping <!-- .element: class="fragment" data-fragment-index="7" -->
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Some techniques
+* Natural Language Processing / Linguistic Annotation / Feature Generation <!-- .element: class="fragment" data-fragment-index="1" -->
+* Named Entity Recognition and Coreference Resolution  <!-- .element: class="fragment" data-fragment-index="2" -->
+* Machine Learning / Text Mining (Clustering, Classification) <!-- .element: class="fragment" data-fragment-index="3" -->
+* Topic Modeling <!-- .element: class="fragment" data-fragment-index="4" -->
+* Sentiment Analysis <!-- .element: class="fragment" data-fragment-index="5" -->
+iscript>
+</section>
+
 
 </section>
 <section>
 
+
 <section data-markdown>
 <script type="text/template">
-# 2. Erzeugen/Anreichern literarischer Texte 
+# 1. Stylometric Similarity Analysis
+<br/>
+<p>(With thanks to Maciej Eder, Jan Rybicki, Stefan Evert, Fotis Jannidis, Thorsten Vitt, Steffen Pielström, ...)</p>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Aspekte des Erzeugens/Anreichern von Text 
-* Digitalisierung (Scannen, OCR)
-* Digitale Texteditionen und Textsammlungen
-* Linguistisch annotierte Korpora
-* Editionsphilologie: Stemmata, Kollationierung
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Werkzeuge 
-</script>
-</section>
-
-
-<section data-markdown>
-<script type="text/template">
-## Optical Character Recognition: FineReader
-<img height="500" data-src="img/finereader.png"></img>
-<p>http://www.abbyy.com/de-de/finereader</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Text kodieren: TEI
-<img height="500" data-src="img/tei.png"></img>
-<p>https://www.tei-c.org</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## XML/TEI-Dateien bearbeiten: oXygen
-<img height="500" data-src="img/oxygen.png"></img>
-<p>https://www.oxygenxml.com</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## XML/TEI-Dateien bearbeiten: jEdit
-<img height="500" data-src="img/jedit.png"></img>
-<p>http://www.jedit.org/</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Annotation: CATMA</h3>
-<img height="500" data-src="img/TA_CATMA.jpg"></img>
-<p><a href="http://www.catma.de/">http://www.catma.de/</a></p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Kollationierung: Juxta
-<img height="500" data-src="img/TA_Juxta.jpg"></img>
-<p>http://www.juxtasoftware.org</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Editionen 
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Walt Whitman Archive
-<img height="500" data-src="img/waltwhitman.png"></img>
-<p>http://www.whitmanarchive.org/</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Devonshire MS Social Edition
-<img height="500" data-src="img/devonshire.png"></img>
-<p>https://en.wikibooks.org/wiki/The_Devonshire_Manuscript</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Van Gogh Letters 
-<img height="500" data-src="img/vangogh.png"></img>
-<p>http://vangoghletters.org/vg/</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Moralische Wochenschriften
-<img height="500" data-src="img/mws.png"></img>
-<p>http://gams.uni-graz.at/mws/</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Faust-Edition
-<img height="500" data-src="img/faustedition.png"></img>
-<p>http://beta.faustedition.net</p>
-</script>
-</section>
-
-</section>
-<section>
-
-<section data-markdown>
-<script type="text/template">
-# 3. Analyse literarischer Texte
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Perspektiven der digitalen Textanalyse
-* Quantitative vs. qualitative Verfahren
-* Klassifikation vs. Clustering
-* Informationsextraktion vs. Datenvisualisierung
-* GUI vs. CLI
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Natural Language Processing: NLTK
-<img height="500" data-src="img/nltk.png"></img>
-<p>http://www.nltk.org</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Maschinelles Lernen: scikit-learn
-<img height="500" data-src="img/sklearn.png"></img>
-<p>http://scikit-learn.org</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Korpusanalyse: TXM
-<img height="500" data-src="img/TA_TXM.jpg"></img>
-<p>http://textometrie.ens-lyon.fr</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Topic Modeling: MALLET 
-<img height="500" data-src="img/TA_Mallet.png"></img>
-<p>http://mallet.cs.umass.edu/topics.php</p>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Stilometrie: stylo for R 
+## stylo for R
 <img height="500" data-src="img/stylo.png"></img>
-<p>https://sites.google.com/site/computationalstylistics/</p>
-
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Netzwerkanalyse: Gephi 
-<img height="500" data-src="img/gephi.jpg"></img>
-<p>https://gephi.org/</p>
+## Stylometric Similarity Analysis
+* Clearly quantitative method
+* Usually using surface features
+* Can be used for clustering or classification
+* There is also a GUI ;-)
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## How does stylometric similarity work? 
+* Each text's stylistic profile is expressed as a word frequency vector <!-- .element: class="fragment" data-fragment-index="1" -->
+* Two texts are considered similar, if their word frequency vector is similar <!-- .element: class="fragment" data-fragment-index="2" -->
+* Various ways of treating the vectors have been developed <!-- .element: class="fragment" data-fragment-index="3" -->
+* Various similarity measures have been proposed <!-- .element: class="fragment" data-fragment-index="4" -->
+* Results can be visualized in a number of ways or used for classification <!-- .element: class="fragment" data-fragment-index="5" -->
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Kartierung: DARIAH Geobrowser
-<img height="500" data-src="img/geobrowser.png"></img>
-<p>https://de.dariah.eu/geobrowser</p>
+## Texts as word frequency vectors
+<img height="500" data-src="img/stylometry_frequency-matrix.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Vector similarity / distance
+<img height="500" data-src="img/stylometry_distance-measures.png"></img>
+<p>(Two texts, A and B; two words on x and y axes)</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Frequency vectors plotted
+<img height="500" data-src="img/stylometry_word-frequencies.jpg"></img>
+<p>(One text for three/four different authors)</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Distribution of relative frequencies
+<img height="500" data-src="img/stylometry_vector-relative.png"></img>
+<p>(High-frequency words dominate)</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Distribution of standardized frequencies
+<img height="500" data-src="img/stylometry_vector-zscores.png"></img>
+<p>(This is what Burrows' Delta does)</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Dendrogram
+<img height="500" data-src="img/stylometry_dendrogram.jpg"></img>
+<p>(Based on the similarity matrix)</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## What does such similarity tell us? 
+* Similarity is usually interpreted as a sign of common authorship <!-- .element: class="fragment" data-fragment-index="1" -->
+* Other factors may come into play, e.g. genre, period, author gender. <!-- .element: class="fragment" data-fragment-index="2" -->
+* Other features, such as morphosyntactic, semantic features, or higher-order features, could be used <!-- .element: class="fragment" data-fragment-index="3" -->
+</script>
+</section>
+
+
+</section>
+<section>
+
+
+<section data-markdown>
+<script type="text/template">
+# 2. Machine Learning in Computational Narratology
+<br/>
+<p>(Example: Automatic Recognition of Direct Speech, with Daniel Schlör and Stefanie Popp)</p> 
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Automatic Recognition of Direct Speech 
+* Computational Narratology
+* Relies on annotation and Machine Learning
+* Necessitates feature generation
+* Derives a higher-order feature from surface / lower-order features
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## What is the problem? 
+<img height="500" data-src="img/directspeech-lalouve.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The corpus used 
+<img height="500" data-src="img/directspeech-corpus.png"></img>
+<p>127 French Novels, 1840-1890</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The method
+* Manually annotate character vs. narrator speech (20x2 random chapters) 
+* Automatically annotate text with NLP pipeline
+* Identify potentially relevant features
+* Train classifiers on the manually annotated chapters
+* Assess the performance of the classifiers 
+* Apply the best model to the un-annotated chapters
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Feature generation (81 features)
+* character-based: long hyphen, exclamation marks, ...
+* lexical: deictics, interjections, ...
+* semantic: verb category (WordNet)
+* morphological: part-of-speech, tempus, ...
+* syntactic: number of commas, sentence length, ...
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Performance
+<img height="500" data-src="img/directspeech-performance.png"></img>
+<p>Random Forests: F1-score 0.938</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Results: Subgenres
+<img height="500" data-src="img/directspeech-results1.png"></img>
+<p>Popular vs. literary subgenres</p>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## What is it useful for? 
+* Investigate subgenre preferences and long-term evolution
+* Investigate differences between different charachter's styles
+* Separate narrator and character speech for stylometry
+* Identify narrator speech and further classify it (narrative, descriptive) 
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Top Features 
+<img height="500" data-src="img/directspeech-topfeatures.png"></img>
+<p>long hyphen, verb tense, personal pronouns</p>
+</script>
+</section>
+
+
+</section>
+<section>
+
+
+<section data-markdown>
+<script type="text/template">
+# 3. Topic Modeling 
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Basic Idea
+* Discovers words which frequently occur together / in similar contexts
+* Calculates how important each word is in each topic
+* Calculates how important each topic is in each document
+* Technically, these are two sets of probability distributions
+* This relies on an iterative process
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## Words, Topics, Documents
+<p><img height="500" data-src="img/tm_blei.png"></img></p>
+<p>(David Blei, "Probabilistic Topic Models", 2012)</p>
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## Preprocessing, Modeling, Postprocessing
+<img height="500" data-src="img/tm_tmw.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Topics: Crime
+<img height="500" data-src="img/tm_tp079x.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Topics: Music
+<img height="500" data-src="img/tm_tp045x.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Top-Authors for Music
+<img height="500" data-src="img/tm_by-author-name-045.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Crime fiction vs. non-crime fiction
+<img height="500" data-src="img/tm_policier-blanche.png"></img>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## What is it good for?
+* Exploring a large collection to find thematically relevant texts
+* Creating higher-order features for genre classification
+* ...
+
 </script>
 </section>
 
@@ -291,59 +400,42 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-markdown>
 <script type="text/template">
-# 4. Weiterführendes
+# Conclusion
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Lektürehinweise (einführend)
-<small>
-* Jannidis, F. (2010). "Methoden der computergestützten Textanalyse". In Nünning, A. and Nünning, V. (eds), _Methoden der literatur- und kulturwissenschaftlichen Textanalyse_. Stuttgart & Weimar: Metzler, pp. 109–32.
-* Jannidis, F. (2007). "Computerphilologie". In Anz, T. (ed), _Handbuch Literaturwissenschaft_, vol. 2 (Methoden und Theorien). Stuttgart: Metzler, pp. 27–40.
-* Schöch, C. (im Erscheinen). "Ein digitales Textformat für die Literaturwissenschaften. Die Richtlinien der Text Encoding Initiative und ihr Nutzen für Textedition und Textanalyse". _Romanische Studien_.
-
-</small>
+## Conclusion
+* There are many new and not so new techniques waiting to be adapted to problems in literary studies  <!-- .element: class="fragment" data-fragment-index="1" -->
+* They are providing a new perspective on literary history, based on more than just the canon   <!-- .element: class="fragment" data-fragment-index="2" -->
+* Useful as they may be, these techniques are nothing if you don't have relevant digital data   <!-- .element: class="fragment" data-fragment-index="3" -->
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Lektürehinweise (vertiefend)
-<small>
-* Burnard, L. (2014). _What Is the Text Encoding Initiative?_. Marseille: OpenEdition Press.
+## Further Reading
 * Shillingsburg, P. (2006). _From Gutenberg to Google. Electronic Representations of Literary Texts_. Cambridge: Cambridge Univ. Press.
 * Alpaydin, E. (2010). _Introduction to Machine Learning_. 2nd ed. Cambridge, Mass: MIT Press.
 * Ramsay, S. (2011). _Reading Machines : Toward an Algorithmic Criticism_. Urbana  Ill.: University of Illinois Press.
-
-</small>
-</script>
-</section>
-
-<section data-markdown>
-<script type="text/template">
-## Online-Ressourcen
-<small>
-* Catalogue of Digital Scholarly Editions: http://www.digitale-edition.de/index.html
-* Textdaten Romanistik Wiki: http://wikis.fu-berlin.de/display/tdr/
-* Doing Digital Humanities Bibliography: https://www.zotero.org/groups/doing_digital_humanities_-_a_dariah_bibliography
-
-</small>
+* _Doing Digital Humanities Bibliography_: https://www.zotero.org/groups/doing_digital_humanities_-_a_dariah_bibliography
 </script>
 </section>
 </section>
 
 <section data-markdown>
 <script type="text/template">
+## Thank you!
 <br/>
 <br/>
 <br/>
 <br/>
 <p>Christof Schöch, 2016</p>
-<p>http://www.christof-schoech.de</p>
+<p><http://www.christof-schoech.de></p>
 <hr/>
-<p>Lizenz: Creative Commons Attribution 4.0 International</p>
-<p>https://creativecommons.org/licenses/by/4.0/</p>
+<p>License: Creative Commons Attribution 4.0 International</p>
+<p><https://creativecommons.org/licenses/by/4.0/></p>
 </script>
 </section>
 
